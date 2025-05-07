@@ -195,4 +195,97 @@
       margin-bottom: 10px;
     }
   }
+  .plans-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .plan-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .plan-card {
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    padding: 25px;
+    width: 300px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+  }
+  
+  .plan-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .plan-card .price {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .plan-card .price span {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .plan-card ul li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .plan-button {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .plan-button.purple {
+    background-color: #7D30B6;
+  }
+  
+  .highlighted {
+    border: 2px solid #7D30B6;
+  }
+  
+  .membership-note {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .pricing-links {
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .pricing-links a {
+    color: #7D30B6;
+    text-decoration: none;
+    font-weight: 500;
+  }
   

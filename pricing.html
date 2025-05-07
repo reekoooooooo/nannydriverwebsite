@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Nanny Driver</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    .pricing-table th, .pricing-table td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+    .pricing-table th {
+      background-color: #f4f4f4;
+    }
+    .section-title {
+      text-align: center;
+      padding-top: 20px;
+    }
+    .included-check {
+      font-weight: bold;
+      color: green;
+    }
+    .pricing-note {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+    .why-price-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Modern Card Pricing Style */
+    .plans-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .plan-subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .plans-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .plan-card {
+      background-color: #f9f9f9;
+      border-radius: 16px;
+      padding: 25px;
+      width: 300px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+    .plan-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .plan-card .price {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .plan-card .price span {
+      font-size: 1rem;
+      color: #555;
+    }
+    .plan-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .plan-card ul li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .plan-button {
+      width: 100%;
+      padding: 12px;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+    .plan-button.purple {
+      background-color: #7D30B6;
+    }
+    .highlighted {
+      border: 2px solid #7D30B6;
+    }
+    .membership-note {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+    .pricing-links {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    .pricing-links a {
+      color: #7D30B6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky">
+    <h1>Pricing Plans</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="safety.html">Safety</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Nanny Driver Monthly Plans</h2>
+
+    <!-- TABLE LAYOUT -->
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Base $389/mo</th>
+          <th>Plus $489/mo</th>
+          <th>Premium $589/mo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Rides Included/Month</td><td>Up to 40</td><td>Up to 60</td><td>Up to 80</td></tr>
+        <tr><td>Covers Multiple Children (Same Home)</td><td class="included-check">✔</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>In-App Scheduling</td><td class="included-check">✔</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Background-Checked Drivers</td><td class="included-check">✔</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Real-Time Ride Status</td><td class="included-check">✔</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Parent Tracking Portal</td><td class="included-check">✔</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Evening & Weekend Rides</td><td>—</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Preferred Driver Selection</td><td>—</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Unlimited Schedule Changes</td><td>—</td><td class="included-check">✔</td><td class="included-check">✔</td></tr>
+        <tr><td>Same-Day Booking</td><td>—</td><td>—</td><td class="included-check">✔</td></tr>
+        <tr><td>Dedicated Driver Access</td><td>—</td><td>—</td><td class="included-check">✔</td></tr>
+        <tr><td>Live Concierge Support</td><td>—</td><td>—</td><td class="included-check">✔</td></tr>
+        <tr><td>Custom Pickup/Drop Zones</td><td>—</td><td>—</td><td class="included-check">✔</td></tr>
+        <tr><td>Early Access to New Features</td><td>—</td><td>—</td><td class="included-check">✔</td></tr>
+      </tbody>
+    </table>
+
+    <p class="pricing-note">
+      <strong>One-Time Annual Membership Fee:</strong> $150 per family, per year.<br>
+      This covers account setup, access to our vetted driver network, app access, and scheduling tools.
+    </p>
+    <a href="why-price.html" class="why-price-link">Why This Price?</a>
+  </div>
+
+  <!-- CARD LAYOUT -->
+  <section class="plans-section">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="plan-subtitle">Every plan includes safe, certified drivers and real-time ride tracking.</p>
+    <div class="plans-container">
+      <div class="plan-card">
+        <h3>Base Plan</h3>
+        <p class="price"><strong>$389</strong><span>/mo</span></p>
+        <ul>
+          <li>✔ Up to 40 rides/month</li>
+          <li>✔ Covers multiple children (same household)</li>
+          <li>✔ In-app scheduling</li>
+          <li>✔ Background-checked drivers</li>
+          <li>✔ Real-time ride status</li>
+          <li>✔ Parent tracking portal</li>
+        </ul>
+        <button class="plan-button">Choose Plan</button>
+      </div>
+
+      <div class="plan-card highlighted">
+        <h3>Plus Plan</h3>
+        <p class="price"><strong>$489</strong><span>/mo</span></p>
+        <ul>
+          <li>✔ All Base Plan features</li>
+          <li>✔ Up to 60 rides/month</li>
+          <li>✔ Evening & weekend rides</li>
+          <li>✔ Preferred driver selection</li>
+          <li>✔ Unlimited schedule changes</li>
+        </ul>
+        <button class="plan-button purple">Choose Plan</button>
+      </div>
+
+      <div class="plan-card highlighted">
+        <h3>Premium Plan</h3>
+        <p class="price"><strong>$589</strong><span>/mo</span></p>
+        <ul>
+          <li>✔ All Plus Plan features</li>
+          <li>✔ Up to 80 rides/month</li>
+          <li>✔ Same-day booking (under 1 hour)</li>
+          <li>✔ Dedicated driver access</li>
+          <li>✔ Live concierge support</li>
+          <li>✔ Custom pickup/drop-off zones</li>
+          <li>✔ Early access to new features</li>
+        </ul>
+        <button class="plan-button purple">Choose Plan</button>
+      </div>
+    </div>
+
+    <p class="membership-note">All plans require a one-time $150 annual membership fee.</p>
+    <div class="pricing-links">
+      <a href="faq.html">FAQ</a> | <a href="what-included.html">What's included</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Facebook" /></a>
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Instagram" /></a>
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Twitter" /></a>
+    </div>
+    <p>&copy; <span id="year">2025</span> Nanny Driver. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
