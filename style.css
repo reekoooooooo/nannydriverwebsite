@@ -80,4 +80,119 @@
     text-align: center;
     padding: 15px;
   }
+  /* Hero image */
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Feature icons layout */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .features-grid li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Sticky nav */
+  .sticky {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary);
+    z-index: 1000;
+  }
+  
+  /* Active link underline */
+  nav ul li a.active {
+    border-bottom: 2px solid white;
+  }
+  
+  /* Newsletter form */
+  .newsletter-form {
+    margin-top: 20px;
+  }
+  
+  .newsletter-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .newsletter-form input[type="email"] {
+    padding: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 250px;
+    max-width: 100%;
+  }
+  
+  .newsletter-form button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Social media icons */
+  .socials {
+    margin-bottom: 10px;
+  }
+  
+  .socials a {
+    margin: 0 8px;
+    display: inline-block;
+  }
+  
+  .socials img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* white icons */
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    nav ul {
+      text-align: center;
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
   

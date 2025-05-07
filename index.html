@@ -8,18 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
+  <header class="sticky">
     <h1>Nanny Driver</h1>
     <nav>
       <ul>
         <li><a href="about.html">About</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#features" class="active">Features</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
+    <img src="https://via.placeholder.com/1200x400?text=Happy+Family+in+Car" alt="Hero Image" class="hero-img" />
     <h2>Your Child's Safe Ride Starts Here</h2>
     <p id="typewriter"></p>
     <a href="#contact" class="cta">Get Started</a>
@@ -27,11 +28,23 @@
 
   <section id="features">
     <h2>Why Parents Choose Us</h2>
-    <ul>
-      <li>Certified and background-checked drivers</li>
-      <li>Luxury and modern vehicle fleet</li>
-      <li>Real-time ride tracking for parents</li>
-      <li>Kid-safe pick-up and drop-off system</li>
+    <ul class="features-grid">
+      <li>
+        <img src="https://via.placeholder.com/50" alt="Check icon" />
+        <span>Certified and background-checked drivers</span>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/50" alt="Car icon" />
+        <span>Luxury and modern vehicle fleet</span>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/50" alt="Tracking icon" />
+        <span>Real-time ride tracking for parents</span>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/50" alt="Shield icon" />
+        <span>Kid-safe pick-up and drop-off system</span>
+      </li>
     </ul>
   </section>
 
@@ -39,11 +52,23 @@
     <h2>Contact Us</h2>
     <p>Email: info@nannydriver.com</p>
     <p>Phone: (123) 456-7890</p>
+
+    <form class="newsletter-form">
+      <label for="email">Sign up for updates:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
   <footer>
+    <div class="socials">
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Facebook" /></a>
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Instagram" /></a>
+      <a href="#"><img src="https://via.placeholder.com/24" alt="Twitter" /></a>
+    </div>
     <p>&copy; <span id="year">2025</span> Nanny Driver. All rights reserved.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
