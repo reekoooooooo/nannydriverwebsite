@@ -96,12 +96,12 @@
     </div>
   </div>
 
-  <!-- Firebase Modular SDK via CDN -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+  <!-- Firebase SDKs (compat version for browser support) -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
 
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyCJXDB-s8k0z_v5ExcsxtrH0eYeIMTmF8U",
       authDomain: "nannydriver-ac620.firebaseapp.com",
@@ -112,34 +112,33 @@
       measurementId: "G-39XNL9VQTN"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
     const form = document.querySelector("form");
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       const fullName = form.elements[0].value;
       const email = form.elements[1].value;
       const phone = form.elements[2].value;
       const password = form.elements[3].value;
 
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        await setDoc(doc(db, "users", user.uid), {
-          fullName,
-          email,
-          phone
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          return db.collection("users").doc(user.uid).set({
+            fullName,
+            email,
+            phone
+          });
+        })
+        .then(() => {
+          alert("Account created! Redirecting...");
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
         });
-
-        alert("Account created! Redirecting...");
-        window.location.href = "index.html";
-
-      } catch (error) {
-        alert("Error: " + error.message);
-      }
     });
   </script>
 </body>
