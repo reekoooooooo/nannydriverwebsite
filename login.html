@@ -101,7 +101,7 @@
       <input type="email" placeholder="Email Address" required />
       <input type="password" placeholder="Password" required />
       <div class="forgot-password">
-        <a href="#">Forgot password?</a>
+        <a href="#" id="forgot-password-link">Forgot password?</a>
       </div>
       <button type="submit">Log In</button>
     </form>
@@ -109,40 +109,86 @@
       New to Nanny Driver? <a href="signup.html">Create an account</a>
     </div>
   </div>
-<!-- Firebase App -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-<!-- Firebase Auth -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCJXDB-s8k0z_v5ExcsxtrH0eYeIMTmF8U",
-    authDomain: "nannydriver-ac620.firebaseapp.com",
-    projectId: "nannydriver-ac620",
-    storageBucket: "nannydriver-ac620.appspot.com",
-    messagingSenderId: "383049608672",
-    appId: "1:383049608672:web:6964a167f41b55a29fef85",
-    measurementId: "G-39XNL9VQTN"
-  };
 
-  firebase.initializeApp(firebaseConfig);
+  <!-- Firebase App -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+  
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJXDB-s8k0z_v5ExcsxtrH0eYeIMTmF8U",
+      authDomain: "nannydriver-ac620.firebaseapp.com",
+      projectId: "nannydriver-ac620",
+      storageBucket: "nannydriver-ac620.appspot.com",
+      messagingSenderId: "383049608672",
+      appId: "1:383049608672:web:6964a167f41b55a29fef85",
+      measurementId: "G-39XNL9VQTN"
+    };
 
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = form.elements[0].value;
-    const password = form.elements[1].value;
+    firebase.initializeApp(firebaseConfig);
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        alert("Login successful!");
-        window.location.href = "index.html"; // 👈 Redirect to homepage
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
-  });
-</script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = form.elements[0].value;
+      const password = form.elements[1].value;
 
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert("Login successful!");
+          window.location.href = "index.html"; // redirect to homepage
+        })
+        .catch((error) => {
+          let message;
+          switch (error.code) {
+            case "auth/user-not-found":
+              message = "No account found with this email.";
+              break;
+            case "auth/wrong-password":
+              message = "Incorrect password. Please try again.";
+              break;
+            case "auth/invalid-email":
+              message = "Please enter a valid email address.";
+              break;
+            default:
+              message = "Login failed: " + error.message;
+          }
+          alert(message);
+        });
+    });
+
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
+
+    forgotPasswordLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = form.elements[0].value;
+
+      if (!email) {
+        alert("Please enter your email address first.");
+        return;
+      }
+
+      firebase.auth().sendPasswordResetEmail(email)
+        .then(() => {
+          alert("Password reset email sent. Please check your inbox.");
+        })
+        .catch((error) => {
+          let message;
+          switch (error.code) {
+            case "auth/user-not-found":
+              message = "No account found with this email.";
+              break;
+            case "auth/invalid-email":
+              message = "Please enter a valid email address.";
+              break;
+            default:
+              message = "Error: " + error.message;
+          }
+          alert(message);
+        });
+    });
+  </script>
 
 </body>
 </html>
