@@ -96,56 +96,51 @@
     </div>
   </div>
 
- <!-- Firebase core -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-<!-- Firebase Auth -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
-<!-- Firebase Firestore -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <!-- Firebase Modular SDK via CDN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJXDB-s8k0z_v5ExcsxtrH0eYeIMTmF8U",
+      authDomain: "nannydriver-ac620.firebaseapp.com",
+      projectId: "nannydriver-ac620",
+      storageBucket: "nannydriver-ac620.appspot.com",
+      messagingSenderId: "383049608672",
+      appId: "1:383049608672:web:6964a167f41b55a29fef85",
+      measurementId: "G-39XNL9VQTN"
+    };
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCJXDB-s8k0z_v5ExcsxtrH0eYeIMTmF8U",
-    authDomain: "nannydriver-ac620.firebaseapp.com",
-    projectId: "nannydriver-ac620",
-    storageBucket: "nannydriver-ac620.appspot.com",
-    messagingSenderId: "383049608672",
-    appId: "1:383049608672:web:6964a167f41b55a29fef85",
-    measurementId: "G-39XNL9VQTN"
-  };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fullName = form.elements[0].value;
+      const email = form.elements[1].value;
+      const phone = form.elements[2].value;
+      const password = form.elements[3].value;
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const fullName = form.elements[0].value;
-  const email = form.elements[1].value;
-  const phone = form.elements[2].value;
-  const password = form.elements[3].value;
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return db.collection("users").doc(user.uid).set({
-        fullName,
-        email,
-        phone
-      });
-    })
-    .then(() => {
-      alert("Account created! Redirecting...");
-      window.location.href = "index.html";  // <- Redirect here after signup
-    })
-    .catch((error) => {
-      alert("Error: " + error.message);
+        await setDoc(doc(db, "users", user.uid), {
+          fullName,
+          email,
+          phone
+        });
+
+        alert("Account created! Redirecting...");
+        window.location.href = "index.html";
+
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
     });
-});
-
-</script>
-
-
+  </script>
 </body>
 </html>
