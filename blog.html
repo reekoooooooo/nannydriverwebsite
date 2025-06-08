@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nanny Driver Blog | Tips & Insights for Parents</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    .blog-header {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .blog-header h1 {
+      color: var(--primary, #4B0082);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+    .blog-post-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-post-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .blog-card-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-content h2 {
+      margin-top: 0;
+      font-size: 1.4em;
+      color: #333;
+    }
+    .blog-card-content p {
+      flex-grow: 1;
+      color: #555;
+    }
+    .read-more-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: var(--accent, #7D30B6);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky">
+    <h1>Nanny Driver Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="blog-header">
+      <h1>Insights for Modern Parents</h1>
+      <p>Your resource for tips on safety, scheduling, and navigating the challenges of modern family life.</p>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Blog Post 1 Preview -->
+      <div class="blog-post-card">
+        <img src="images/safe_trusted_transport.png" alt="Parent looking at phone with a look of relief" class="blog-card-img">
+        <div class="blog-card-content">
+          <h2>5 Things to Look for in a Child Transportation Service</h2>
+          <p>Choosing a service to transport your child is a big decision. We break down the essential, non-negotiable features every parent should look for...</p>
+          <a href="blogpost1.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Blog Post 2 Preview -->
+      <div class="blog-post-card">
+        <img src="images/start_their_day_safe.png" alt="Child waving goodbye after being dropped off at school" class="blog-card-img">
+        <div class="blog-card-content">
+          <h2>The Morning Rush: How to Make School Drop-offs Stress-Free</h2>
+          <p>Mornings can be chaotic. Discover practical tips and strategies to streamline your routine and ensure school drop-offs are calm and positive...</p>
+          <a href="blogpost2.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Blog Post 3 Preview -->
+      <div class="blog-post-card">
+        <img src="images/kid_sitting_in_back.png" alt="A smiling child safely buckled in the back seat of a car" class="blog-card-img">
+        <div class="blog-card-content">
+          <h2>Why We Don't Use Gig Workers: The Nanny Driver Difference</h2>
+          <p>The "gig economy" model doesn't work when it comes to your child's safety. Learn why our commitment to W-2 employee drivers makes all the difference...</p>
+          <a href="blogpost3.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer style="margin-top: 40px;">
+    <p>&copy; <span id="year">2025</span> Nanny Driver. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
