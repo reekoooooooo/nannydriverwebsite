@@ -288,4 +288,41 @@
     text-decoration: none;
     font-weight: 500;
   }
-  
+  /* Header with Logo Styles */
+header.sticky {
+    padding: 10px 40px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: var(--primary, #4B0082); /* Default text color for header */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header-container .logo {
+    height: 50px;
+    width: auto;
+}
+
+header.sticky nav ul li a {
+    color: var(--primary, #4B0082);
+    padding-bottom: 5px; /* Add padding for the border */
+}
+
+/* This overrides the white link color you had before for headers */
+header.sticky nav ul li a.active,
+header.sticky nav ul li a:hover {
+    border-bottom: 2px solid var(--accent, #7D30B6);
+}
+
+/* Style for simple headers (like on blog posts) */
+.simple-header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 40px;
+}
