@@ -6,16 +6,53 @@
   <title>Our Safety Standards | Nanny Driver</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+      /* Assuming these base styles are in style.css, but adding for context */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .cta {
+        display: inline-block;
+        background: var(--accent, #7D30B6);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+    /* Styles for the new header */
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .logo {
+        height: 50px;
+    }
+    .sticky nav ul {
+        margin: 0; /* Removing default margin for better alignment */
+    }
+  </style>
 </head>
 <body>
   <header class="sticky">
-    <h1>Our Safety Standards</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+        <a href="index.html">
+            <img src="images/NDLogo.png" alt="Nanny Driver Logo" class="logo">
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </nav>
+    </div>
   </header>
 
   <section class="intro">

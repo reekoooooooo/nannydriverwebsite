@@ -1,4 +1,3 @@
-<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +7,10 @@
   <link rel="icon" type="image/png" href="images/NDLogo.png">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      padding: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
     .signup-container {
       background-color: white;
@@ -71,6 +65,24 @@
     .signin-link a:hover {
       text-decoration: underline;
     }
+    /* Message area styles */
+    #message-area {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    #message-area.success {
+      background-color: #e6fffa;
+      color: #38a169;
+      border: 1px solid #a0f0d0;
+    }
+    #message-area.error {
+      background-color: #fff5f5;
+      color: #c53030;
+      border: 1px solid #fc8181;
+    }
   </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6 flex-col">
@@ -83,13 +95,14 @@
 
   <div class="signup-container">
     <h2>Create Your Account</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="password" placeholder="Create Password" required />
+    <form id="signupForm">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <input type="password" id="password" placeholder="Create Password" required />
       <button type="submit">Sign Up</button>
     </form>
+    <div id="message-area" class="hidden"></div>
     <div class="signin-link">
       Already a member? <a href="login.html">Sign in</a>
     </div>
@@ -108,33 +121,65 @@
     appId: "1:303049608672:web:6964a167f41b55a29fef85",
     measurementId: "G-39XNL9VQTN"
   };
+  
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
-  const form = document.querySelector("form");
+
+  const form = document.getElementById("signupForm");
+  const messageArea = document.getElementById("message-area");
+
+  function showMessage(text, type = "error") {
+      messageArea.textContent = text;
+      messageArea.className = type; // 'error' or 'success'
+      messageArea.classList.remove('hidden'); // Make it visible
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const fullName = form.elements[0].value;
-    const email = form.elements[1].value;
-    const phone = form.elements[2].value;
-    const password = form.elements[3].value;
+    messageArea.classList.add('hidden'); // Hide previous messages
+
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const password = document.getElementById("password").value;
+
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        // Save additional user info to Firestore
         return db.collection("users").doc(user.uid).set({
-          fullName,
-          email,
-          phone
+          fullName: fullName,
+          email: email,
+          phone: phone,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp() // Good practice to add a creation date
         });
       })
       .then(() => {
-        window.location.href = "index.html";
+        showMessage("Account created successfully! Redirecting...", "success");
+        setTimeout(() => {
+            window.location.href = "index.html"; // Redirect to homepage after a short delay
+        }, 2000);
       })
       .catch((error) => {
-        // Using a custom message area instead of alert() would be better here too
+        let message;
+        switch (error.code) {
+            case 'auth/email-already-in-use':
+                message = 'This email address is already in use by another account.';
+                break;
+            case 'auth/invalid-email':
+                message = 'Please enter a valid email address.';
+                break;
+            case 'auth/weak-password':
+                message = 'Your password is too weak. It must be at least 6 characters long.';
+                break;
+            default:
+                message = 'Signup failed: ' + error.message;
+        }
+        showMessage(message, "error");
         console.error("Firebase signup error:", error);
-        alert("Signup Failed: " + error.message);
       });
   });
 </script>
 </body>
+</html>

@@ -7,14 +7,72 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-      .blog-container { max-width: 800px; margin: auto; padding: 20px; background: white; border-radius: 8px; }
-      .blog-post-img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 25px; }
-      .blog-content h2 { color: var(--primary, #4B0082); }
-      .blog-content ul { list-style-type: disc; padding-left: 20px; }
-      .back-to-blog { display: inline-block; margin-bottom: 20px; color: var(--accent, #7D30B6); text-decoration: none; font-weight: 600; }
+      body {
+          background-color:#f9f9f9;
+          margin: 0; /* Reset default body margin */
+          padding: 0;
+      }
+      .blog-container {
+          max-width: 800px;
+          margin: auto;
+          padding: 20px;
+          background: white;
+          border-radius: 8px;
+          margin-top: 30px; /* Add space below header */
+      }
+      .blog-post-img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 25px;
+      }
+      .blog-content h1 {
+          margin-top: 0;
+      }
+      .blog-content h2 {
+          color: var(--primary, #4B0082);
+      }
+      .blog-content ul {
+          list-style-type: disc;
+          padding-left: 20px;
+      }
+      .back-to-blog {
+          display: inline-block;
+          margin-bottom: 20px;
+          color: var(--accent, #7D30B6);
+          text-decoration: none;
+          font-weight: 600;
+      }
+      /* Styles for the new header */
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px; /* Add padding for smaller screens */
+    }
+    .logo {
+        height: 50px; /* Adjust as needed */
+    }
   </style>
 </head>
-<body style="background-color:#f9f9f9; padding: 20px;">
+<body>
+    <header class="sticky">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/NDLogo.png" alt="Nanny Driver Logo" class="logo">
+            </a>
+            <nav>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+              </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="blog-container">
         <a href="blog.html" class="back-to-blog">&larr; Back to All Articles</a>
         <img src="images/safe_trusted_transport.png" alt="A parent looking at their phone, feeling secure about their child's transportation." class="blog-post-img">

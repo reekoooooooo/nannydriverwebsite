@@ -6,20 +6,6 @@
   <title>Nanny Driver App | Preview</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-</head>
-<body>
-    <header class="sticky simple-header">
-        <div class="header-container">
-            <a href="index.html">
-                <img src="images/NDLogo.png" alt="Nanny Driver Logo" class="logo">
-            </a>
-            <nav>
-              <ul>
-                <li><a href="index.html">&larr; Back to Home</a></li>
-              </ul>
-            </nav>
-        </div>
-    </header>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -28,35 +14,22 @@
       background-color: #f9f9f9;
     }
     .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
     }
     .wip-banner {
-        background-color: #4B0082; /* Primary color */
-        color: white;
-        text-align: center;
-        padding: 15px 20px;
-        font-weight: 500;
-        font-size: 1.1em;
+      background-color: #4B0082; /* Primary color */
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      font-weight: 500;
+      font-size: 1.1em;
     }
     .wip-banner p {
-        margin: 0;
+      margin: 0;
     }
-    /* Style for the new home link navigation */
-    .home-link-nav {
-        padding-top: 20px;
-    }
-    .home-link-nav a {
-        color: #7D30B6; /* Accent color */
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.1em;
-    }
-    .home-link-nav a:hover {
-        text-decoration: underline;
-    }
-    header {
+    .page-header {
       text-align: center;
       margin-bottom: 30px;
       margin-top: 20px;
@@ -78,7 +51,7 @@
       transition: transform 0.2s ease-in-out;
     }
     .app-card:hover {
-        transform: translateY(-5px);
+      transform: translateY(-5px);
     }
     .app-card img {
       width: 100%;
@@ -94,9 +67,9 @@
       color: #333;
     }
     .app-card p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: #555;
+      margin: 0;
+      font-size: 0.95rem;
+      color: #555;
     }
     .download-section {
       text-align: center;
@@ -114,70 +87,89 @@
       transition: background-color 0.2s ease;
     }
     .download-section a:hover {
-        background-color: #68249c;
+      background-color: #68249c;
+    }
+    /* Reusing header styles from other pages */
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .logo {
+        height: 50px;
     }
   </style>
 </head>
 <body>
+  <header class="sticky">
+      <div class="header-container">
+          <a href="index.html">
+              <img src="images/NDLogo.png" alt="Nanny Driver Logo" class="logo">
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">&larr; Back to Home</a></li>
+            </ul>
+          </nav>
+      </div>
+  </header>
 
   <div class="wip-banner">
     <p>🚧 Our app is currently under construction, but we're too excited to keep it a secret! 🚧</p>
   </div>
 
-<div class="container">
-  <!-- Added "Back to Home" navigation link -->
-  <nav class="home-link-nav">
-    <a href="index.html">&larr; Back to Home</a>
-  </nav>
+  <div class="container">
+    <div class="page-header">
+      <h1>A Sneak Peek of the Nanny Driver App</h1>
+      <p>We're building an experience centered on safety, convenience, and your peace of mind. Here are some early screenshots of the app coming soon!</p>
+    </div>
 
-  <header>
-    <h1>A Sneak Peek of the Nanny Driver App</h1>
-    <p>We're building an experience centered on safety, convenience, and your peace of mind. Here are some early screenshots of the app coming soon!</p>
-  </header>
+    <div class="app-preview-grid">
+      <div class="app-card">
+        <img src="images/loginscreenapp.png" alt="Login Screen of the Nanny Driver App">
+        <h3>Secure Login</h3>
+        <p>Easy and secure sign-in to access your account.</p>
+      </div>
+      <div class="app-card">
+        <img src="images/parenrprofileapp.png" alt="Parent Profile screen in the Nanny Driver App">
+        <h3>Family Profiles</h3>
+        <p>Manage child profiles, preferences, and notifications.</p>
+      </div>
+      <div class="app-card">
+        <img src="images/track_rideapp.png" alt="Track My Ride screen in the Nanny Driver App">
+        <h3>Real-Time Tracking</h3>
+        <p>View ride history and live status updates.</p>
+      </div>
+      <div class="app-card">
+        <img src="images/schedulerideapp.png" alt="Schedule a Ride screen in the Nanny Driver App">
+        <h3>Easy Scheduling</h3>
+        <p>Book a ride ahead with a few quick taps.</p>
+      </div>
+      <div class="app-card">
+        <img src="images/inappsupport.png" alt="In-App Support chat screen in the Nanny Driver App">
+        <h3>In-App Support</h3>
+        <p>Chat directly with drivers or our support team.</p>
+      </div>
+      <div class="app-card">
+        <img src="images/liveridefeedapp.png" alt="Live Ride Feed screen with video and map view">
+        <h3>Live Ride Feed</h3>
+        <p>Watch the ride in real time with video and GPS view.</p>
+      </div>
+    </div>
 
-  <div class="app-preview-grid">
-    <div class="app-card">
-      <img src="images/loginscreenapp.png" alt="Login Screen of the Nanny Driver App">
-      <h3>Secure Login</h3>
-      <p>Easy and secure sign-in to access your account.</p>
-    </div>
-    <div class="app-card">
-      <img src="images/parenrprofileapp.png" alt="Parent Profile screen in the Nanny Driver App">
-      <h3>Family Profiles</h3>
-      <p>Manage child profiles, preferences, and notifications.</p>
-    </div>
-    <div class="app-card">
-      <img src="images/track_rideapp.png" alt="Track My Ride screen in the Nanny Driver App">
-      <h3>Real-Time Tracking</h3>
-      <p>View ride history and live status updates.</p>
-    </div>
-    <div class="app-card">
-      <img src="images/schedulerideapp.png" alt="Schedule a Ride screen in the Nanny Driver App">
-      <h3>Easy Scheduling</h3>
-      <p>Book a ride ahead with a few quick taps.</p>
-    </div>
-    <div class="app-card">
-      <img src="images/inappsupport.png" alt="In-App Support chat screen in the Nanny Driver App">
-      <h3>In-App Support</h3>
-      <p>Chat directly with drivers or our support team.</p>
-    </div>
-    <div class="app-card">
-      <img src="images/liveridefeedapp.png" alt="Live Ride Feed screen with video and map view">
-      <h3>Live Ride Feed</h3>
-      <p>Watch the ride in real time with video and GPS view.</p>
+    <div class="download-section">
+      <h2>Launching Soon!</h2>
+      <a href="#">Coming to the App Store</a>
+      <a href="#">Coming to Google Play</a>
     </div>
   </div>
 
-  <div class="download-section">
-    <h2>Launching Soon!</h2>
-    <a href="#">Coming to the App Store</a>
-    <a href="#">Coming to Google Play</a>
-  </div>
-
-  <footer style="text-align:center; margin-top: 60px;">
+  <footer style="text-align:center; padding: 40px 20px;">
     <p>&copy; <span id="year">2025</span> Nanny Driver. All rights reserved.</p>
   </footer>
-</div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
